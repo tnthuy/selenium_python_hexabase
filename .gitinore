@@ -1,0 +1,5 @@
+.idea
+.project
+.pydevproject
+requirements.dev
+requirements_dev_install.bat
