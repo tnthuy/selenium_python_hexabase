@@ -3,3 +3,6 @@
 .pydevproject
 requirements.dev
 requirements_dev_install.bat
+
+**/__init__.py*
+**/__pycache__*

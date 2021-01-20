@@ -23,18 +23,20 @@ class LoginPage(BasePage):
         btn_login_elt = self.find_element_by_xpath(locator.LoginPage.btn_signin)
         self.click_wait(btn_login_elt, 1)
 
+    def click_forgotpass(self):
+        link_forgotpassword_elt = self.find_element_by_xpath(locator.LoginPage.link_forgotPassword)
+        self.click_wait(link_forgotpassword_elt, 1)
 
-    # def test_Login(self, ID, EMAIL, PASSWORD):
-    #     self.username = self.driver.find_element_by_xpath(LoginPage.input_email)
-    #     self.username.send_keys(EMAIL)
-    #     # Enter pass
-    #     self.password = self.driver.find_element_by_xpath(LoginPage.input_password)
-    #     self.password.send_keys(PASSWORD)
-    #     self.driver.implicitly_wait(3000)
-    #
-    #     # Click Login button
-    #     self.driver.find_element_by_xpath(LoginPage.btn_signin).click()
+    def show_LoginErrorMessage(self):
+        lct = locator.LoginPage.lbl_error
+        flag = self.is_element_present_by_xpath(lct)
+        if flag:
+            return True
+        else:
+            return False
 
-    # def test_ClickForgotPassword(self):
-    #     self.forgotPassword = self.driver.find_element_by_xpath(LoginPage.link_forgotPassword)
-    #     self.forgotPassword.click()
+    def getLoginErrorMessage(self):
+        if BasePage.is_element_present_by_xpath(locator.LoginPage.lbl_error):
+            return self.get_text(locator.LoginPage.lbl_error)
+        else:
+            return " "
